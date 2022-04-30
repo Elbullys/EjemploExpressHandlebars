@@ -4,7 +4,9 @@ const path = require('path');
 
 const app = express();
 
-// Indicar el motor de vistas
+//========================================================
+//      Indicar el motor de vistas
+//========================================================
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
 // configurar motor
@@ -15,6 +17,9 @@ app.set('views', './views');
 //========================================================
 app.use(express.static(path.join(__dirname, 'public')));
 
+//========================================================
+//      ROUTES DE MI APP
+//========================================================
 app.get('/', (req, res) => {
     // Renderizar vista home
     res.render('home', {layout: 'main'});
@@ -25,4 +30,7 @@ app.get('/productos', (req, res) => {
     res.render('Productos/homeProductos', {layout: 'main'});
 });
 
+//========================================================
+//      LISTEN
+//========================================================
 app.listen(8080);
