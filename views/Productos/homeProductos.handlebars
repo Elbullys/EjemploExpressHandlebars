@@ -1,11 +1,54 @@
 <h2>
     Mis Productos
 </h2>
+<h4>
+    {{#if bandera}}
+        Bienvenido {{ nombre }}, edad: {{edad}}
+    {{else}}
+        Bienvenido 
+            {{#with persona}} 
+                {{nombre}}. Edad: {{edad}} 
+            {{/with}}
+    {{/if}}
+</h4>
 
-<ol>
-    <li>Producto 1</li>
-    <li>Producto 2</li>
-    <li>Producto 3</li>
-    <li>Producto 4</li>
-    <li>Producto 5</li>
-</ol>
+<div class="container border">
+    {{#each productos }}
+        {{#if @first}}
+            <div class="row border">
+                <div class="col border">
+                    Descripción
+                </div>
+                <div class="col border">
+                    Costo
+                </div>
+                <div class="col border">
+                    Modificar
+                </div>
+                <div class="col border">
+                    Eliminar
+                </div>
+            </div>
+        {{/if}}
+        <div class="row">
+            <div class="col border">
+                <a href="productos/{{ id }}">
+                    {{ descripcion }}
+                </a>
+            </div>
+            <div class="col border">
+                <span class="badge bg-secondary"> {{ costo }} </span>
+            </div>
+            <div class="col border">
+                <a href="/productos/edit/{{id}}" class="btn btn-primary">Modificar</a>
+            </div>
+            <div class="col border">
+                <a href="/productos/delete/{{id}}" class="btn btn-danger">Eliminar</a>
+            </div>
+        </div>
+    {{else}}
+        <p class="text-danger">
+            No hay productos.
+        </p>
+    {{/each}}
+</div>

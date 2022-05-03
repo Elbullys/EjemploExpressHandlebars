@@ -1,0 +1,27 @@
+<h3>
+    Editar Producto {{ id }}
+</h3>
+
+{{#with producto}}
+<form action="{{id}}" method="put">
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">
+            Descripción
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" 
+                id="descripcion" value={{ descripcion }}>
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="staticEmail" class="col-sm-2 col-form-label">
+            Costo
+        </label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" 
+                id="descripcion" value={{ costo }}>
+        </div>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Guardar">
+</form>
+{{/with}}
